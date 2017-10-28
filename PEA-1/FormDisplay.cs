@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace PEA_1
 {
-    public partial class Form1 : Form
+    public partial class FormDisplay : Form
     {
-        public Form1()
+        public FormDisplay(string text)
         {
             InitializeComponent();
+            textBoxDisplay.Text = text;
         }
     }
 }
