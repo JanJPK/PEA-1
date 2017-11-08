@@ -15,19 +15,19 @@ namespace PEA_1
 {
     public partial class FormMain : Form
     {
-        // ######## ######## ######## ######## Zmienne
-        #region
+        #region Zmienne
 
         // Lista zawierająca dane wejściowe.
         public List<int> InputList { get; private set; }
 
         // Algorytmy, ich zegary i dane.
         private SalesmanData salesmanData;
-        private SalesmanBnB salesmanBnB;
+
+        private SalesmanDynamic salesmanDynamic;
         private SalesmanGenetic salesmanGenetic;
         private SalesmanLocalSearch salesmanLocalSearch;
 
-        //private Clock salesmanBnBClock;
+        //private Clock salesmanDynamicClock;
         //private Clock salesmanGeneticClock;
         //private Clock salesmanLocalSearchClock;
 
@@ -43,11 +43,11 @@ namespace PEA_1
             //textBoxLoadDataFilename.Text = "tsp_6_2";
             //radioButtonLoadDataSalesman.Checked = true;
 
-            checkBoxSalesmanBnB.Checked = true;
+            checkBoxSalesmanDynamic.Checked = true;
             //checkBoxSalesmanLocalSearch.Checked = true;
             //checkBoxSalesmanGenetic.Checked = true;
 
-            textBoxLoadDataFilename.Text = "ks_1";
+            textBoxLoadDataFilename.Text = "tsp_w";
 
             textBoxDataGeneratorSize.Text = "100";
 
@@ -55,8 +55,7 @@ namespace PEA_1
             textBoxRepeatCurrent.Text = repeat.ToString();
         }
 
-        // ######## ######## ######## ######## Przyciski
-        #region
+        #region Eventy WinForms
         //
         //
         // Start komiwojażera.
@@ -64,19 +63,19 @@ namespace PEA_1
         {
             if (salesmanData != null)
             {
-                //if (checkBoxSalesmanBnB.Checked)
-                //{
-                //    for (int i = 0; i < repeat; i++)
-                //    {
-                //        salesmanBnB = new SalesmanBnB(salesmanData);
-                //        salesmanBnBClock = new Clock(salesmanBnB);
-                //        salesmanBnBClock.Start();
-                //        salesmanBnB.Work();
-                //        salesmanBnBClock.Stop();
-                //    }
-                //    salesmanBnBClock.End();
-                //    textBoxSalesmanBnB.Text = salesmanBnBClock.Average().ToString();
-                //}
+                if (checkBoxSalesmanDynamic.Checked)
+                {
+                    for (int i = 0; i < repeat; i++)
+                    {
+                        salesmanDynamic = new SalesmanDynamic(salesmanData);
+                        //salesmanDynamicClock = new Clock(salesmanDynamic);
+                        //salesmanDynamicClock.Start();
+                        salesmanDynamic.Start();
+                        //salesmanDynamicClock.Stop();
+                    }
+                    //salesmanDynamicClock.End();
+                    //textBoxSalesmanDynamic.Text = salesmanDynamicClock.Average().ToString();
+                }
 
                 //if (checkBoxSalesmanLocalSearch.Checked)
                 //{
@@ -114,12 +113,12 @@ namespace PEA_1
         }
         //
         //
-        // Wyświetlanie wyniku komiwojażera - BnB.
-        private void buttonSalesmanBnB_Click(object sender, EventArgs e)
+        // Wyświetlanie wyniku komiwojażera - Dynamic.
+        private void buttonSalesmanDynamic_Click(object sender, EventArgs e)
         {
-            if (salesmanBnB != null)
+            if (salesmanDynamic != null)
             {
-                FormDisplay fD = new FormDisplay(salesmanBnB.ToString());
+                FormDisplay fD = new FormDisplay(salesmanDynamic.ToString());
                 fD.Show();
             }
             else
@@ -165,9 +164,9 @@ namespace PEA_1
         // Wyświetlanie wszystkich wyników - komiwjoażer.
         private void buttonSalesmanAll_Click(object sender, EventArgs e)
         {
-            if (salesmanBnB != null)
+            if (salesmanDynamic != null)
             {
-                FormDisplay fD = new FormDisplay(salesmanBnB.ToString());
+                FormDisplay fD = new FormDisplay(salesmanDynamic.ToString());
                 fD.Show();
             }
             if (salesmanLocalSearch != null)
@@ -204,7 +203,6 @@ namespace PEA_1
         {
             textBoxLoadDataFilename.BackColor = SystemColors.Window;
         }
-        #endregion
         //
         //
         // Tworzenie danych.
@@ -240,11 +238,11 @@ namespace PEA_1
             textBoxRepeatCurrent.Text = repeat.ToString();
             textBoxRepeatNew.Text = "";
         }
-        //
-        //
-        // ######## ######## ######## ######## Funkcje
-        #region
+        #endregion
 
+        #region Funkcje
+        //
+        //
         // Wczytywanie z pliku.
         private void ReadFile(string filename)
         {
@@ -294,8 +292,8 @@ namespace PEA_1
                 this.BackColor = Color.MediumVioletRed;
                 throw;
             }
-
-        
+        }
         #endregion
+
     }
 }

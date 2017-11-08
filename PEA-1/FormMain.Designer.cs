@@ -40,10 +40,10 @@
             this.buttonSalesmanGenetic = new System.Windows.Forms.Button();
             this.textBoxSalesmanLocalSearch = new System.Windows.Forms.TextBox();
             this.checkBoxSalesmanLocalSearch = new System.Windows.Forms.CheckBox();
-            this.checkBoxSalesmanBnB = new System.Windows.Forms.CheckBox();
+            this.checkBoxSalesmanDynamic = new System.Windows.Forms.CheckBox();
             this.buttonSalesmanLocalSearch = new System.Windows.Forms.Button();
-            this.textBoxSalesmanBnB = new System.Windows.Forms.TextBox();
-            this.buttonSalesmanBnB = new System.Windows.Forms.Button();
+            this.textBoxSalesmanDynamic = new System.Windows.Forms.TextBox();
+            this.buttonSalesmanDynamic = new System.Windows.Forms.Button();
             this.buttonSalesman = new System.Windows.Forms.Button();
             this.groupBoxRepeat = new System.Windows.Forms.GroupBox();
             this.textBoxRepeatNew = new System.Windows.Forms.TextBox();
@@ -118,10 +118,10 @@
             this.groupBoxSalesman.Controls.Add(this.buttonSalesmanGenetic);
             this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanLocalSearch);
             this.groupBoxSalesman.Controls.Add(this.checkBoxSalesmanLocalSearch);
-            this.groupBoxSalesman.Controls.Add(this.checkBoxSalesmanBnB);
+            this.groupBoxSalesman.Controls.Add(this.checkBoxSalesmanDynamic);
             this.groupBoxSalesman.Controls.Add(this.buttonSalesmanLocalSearch);
-            this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanBnB);
-            this.groupBoxSalesman.Controls.Add(this.buttonSalesmanBnB);
+            this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanDynamic);
+            this.groupBoxSalesman.Controls.Add(this.buttonSalesmanDynamic);
             this.groupBoxSalesman.Controls.Add(this.buttonSalesman);
             this.groupBoxSalesman.Location = new System.Drawing.Point(12, 100);
             this.groupBoxSalesman.Name = "groupBoxSalesman";
@@ -143,6 +143,7 @@
             // checkBoxSalesmanGenetic
             // 
             this.checkBoxSalesmanGenetic.AutoSize = true;
+            this.checkBoxSalesmanGenetic.Enabled = false;
             this.checkBoxSalesmanGenetic.Location = new System.Drawing.Point(12, 69);
             this.checkBoxSalesmanGenetic.Name = "checkBoxSalesmanGenetic";
             this.checkBoxSalesmanGenetic.Size = new System.Drawing.Size(63, 17);
@@ -152,6 +153,7 @@
             // 
             // textBoxSalesmanGenetic
             // 
+            this.textBoxSalesmanGenetic.Enabled = false;
             this.textBoxSalesmanGenetic.Location = new System.Drawing.Point(132, 71);
             this.textBoxSalesmanGenetic.Name = "textBoxSalesmanGenetic";
             this.textBoxSalesmanGenetic.Size = new System.Drawing.Size(90, 20);
@@ -159,6 +161,7 @@
             // 
             // buttonSalesmanGenetic
             // 
+            this.buttonSalesmanGenetic.Enabled = false;
             this.buttonSalesmanGenetic.Location = new System.Drawing.Point(225, 69);
             this.buttonSalesmanGenetic.Name = "buttonSalesmanGenetic";
             this.buttonSalesmanGenetic.Size = new System.Drawing.Size(70, 23);
@@ -169,6 +172,7 @@
             // 
             // textBoxSalesmanLocalSearch
             // 
+            this.textBoxSalesmanLocalSearch.Enabled = false;
             this.textBoxSalesmanLocalSearch.Location = new System.Drawing.Point(132, 44);
             this.textBoxSalesmanLocalSearch.Name = "textBoxSalesmanLocalSearch";
             this.textBoxSalesmanLocalSearch.Size = new System.Drawing.Size(90, 20);
@@ -177,6 +181,7 @@
             // checkBoxSalesmanLocalSearch
             // 
             this.checkBoxSalesmanLocalSearch.AutoSize = true;
+            this.checkBoxSalesmanLocalSearch.Enabled = false;
             this.checkBoxSalesmanLocalSearch.Location = new System.Drawing.Point(12, 42);
             this.checkBoxSalesmanLocalSearch.Name = "checkBoxSalesmanLocalSearch";
             this.checkBoxSalesmanLocalSearch.Size = new System.Drawing.Size(89, 17);
@@ -184,18 +189,19 @@
             this.checkBoxSalesmanLocalSearch.Text = "Local Search";
             this.checkBoxSalesmanLocalSearch.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSalesmanBnB
+            // checkBoxSalesmanDynamic
             // 
-            this.checkBoxSalesmanBnB.AutoSize = true;
-            this.checkBoxSalesmanBnB.Location = new System.Drawing.Point(12, 16);
-            this.checkBoxSalesmanBnB.Name = "checkBoxSalesmanBnB";
-            this.checkBoxSalesmanBnB.Size = new System.Drawing.Size(46, 17);
-            this.checkBoxSalesmanBnB.TabIndex = 12;
-            this.checkBoxSalesmanBnB.Text = "BnB";
-            this.checkBoxSalesmanBnB.UseVisualStyleBackColor = true;
+            this.checkBoxSalesmanDynamic.AutoSize = true;
+            this.checkBoxSalesmanDynamic.Location = new System.Drawing.Point(12, 16);
+            this.checkBoxSalesmanDynamic.Name = "checkBoxSalesmanDynamic";
+            this.checkBoxSalesmanDynamic.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxSalesmanDynamic.TabIndex = 12;
+            this.checkBoxSalesmanDynamic.Text = "Dynamic";
+            this.checkBoxSalesmanDynamic.UseVisualStyleBackColor = true;
             // 
             // buttonSalesmanLocalSearch
             // 
+            this.buttonSalesmanLocalSearch.Enabled = false;
             this.buttonSalesmanLocalSearch.Location = new System.Drawing.Point(225, 42);
             this.buttonSalesmanLocalSearch.Name = "buttonSalesmanLocalSearch";
             this.buttonSalesmanLocalSearch.Size = new System.Drawing.Size(70, 23);
@@ -204,22 +210,22 @@
             this.buttonSalesmanLocalSearch.UseVisualStyleBackColor = true;
             this.buttonSalesmanLocalSearch.Click += new System.EventHandler(this.buttonSalesmanLocalSearch_Click);
             // 
-            // textBoxSalesmanBnB
+            // textBoxSalesmanDynamic
             // 
-            this.textBoxSalesmanBnB.Location = new System.Drawing.Point(132, 18);
-            this.textBoxSalesmanBnB.Name = "textBoxSalesmanBnB";
-            this.textBoxSalesmanBnB.Size = new System.Drawing.Size(90, 20);
-            this.textBoxSalesmanBnB.TabIndex = 10;
+            this.textBoxSalesmanDynamic.Location = new System.Drawing.Point(132, 18);
+            this.textBoxSalesmanDynamic.Name = "textBoxSalesmanDynamic";
+            this.textBoxSalesmanDynamic.Size = new System.Drawing.Size(90, 20);
+            this.textBoxSalesmanDynamic.TabIndex = 10;
             // 
-            // buttonSalesmanBnB
+            // buttonSalesmanDynamic
             // 
-            this.buttonSalesmanBnB.Location = new System.Drawing.Point(225, 16);
-            this.buttonSalesmanBnB.Name = "buttonSalesmanBnB";
-            this.buttonSalesmanBnB.Size = new System.Drawing.Size(70, 23);
-            this.buttonSalesmanBnB.TabIndex = 6;
-            this.buttonSalesmanBnB.Text = "Wypisz";
-            this.buttonSalesmanBnB.UseVisualStyleBackColor = true;
-            this.buttonSalesmanBnB.Click += new System.EventHandler(this.buttonSalesmanBnB_Click);
+            this.buttonSalesmanDynamic.Location = new System.Drawing.Point(225, 16);
+            this.buttonSalesmanDynamic.Name = "buttonSalesmanDynamic";
+            this.buttonSalesmanDynamic.Size = new System.Drawing.Size(70, 23);
+            this.buttonSalesmanDynamic.TabIndex = 6;
+            this.buttonSalesmanDynamic.Text = "Wypisz";
+            this.buttonSalesmanDynamic.UseVisualStyleBackColor = true;
+            this.buttonSalesmanDynamic.Click += new System.EventHandler(this.buttonSalesmanDynamic_Click);
             // 
             // buttonSalesman
             // 
@@ -335,10 +341,10 @@
         private System.Windows.Forms.Button buttonSalesmanGenetic;
         private System.Windows.Forms.TextBox textBoxSalesmanLocalSearch;
         private System.Windows.Forms.CheckBox checkBoxSalesmanLocalSearch;
-        private System.Windows.Forms.CheckBox checkBoxSalesmanBnB;
+        private System.Windows.Forms.CheckBox checkBoxSalesmanDynamic;
         private System.Windows.Forms.Button buttonSalesmanLocalSearch;
-        private System.Windows.Forms.TextBox textBoxSalesmanBnB;
-        private System.Windows.Forms.Button buttonSalesmanBnB;
+        private System.Windows.Forms.TextBox textBoxSalesmanDynamic;
+        private System.Windows.Forms.Button buttonSalesmanDynamic;
         private System.Windows.Forms.Button buttonSalesman;
         private System.Windows.Forms.GroupBox groupBoxRepeat;
         private System.Windows.Forms.TextBox textBoxRepeatNew;
