@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PEA_1.Salesman;
 
 namespace PEA_1.Utility
 {
@@ -11,15 +7,24 @@ namespace PEA_1.Utility
     {
         private static Random rng;
 
-        public static List<int> Salesman(int cityAmount)
+        public static List<int> Salesman(int cityAmount, int lower = 0, int upper = 0)
         {
-            // pierwsza linia: [liczba miast]
+            // lower, upper - zakres losowania wag.
+            if (upper == 0)
+            {
+                upper = (int)(cityAmount * 1.5);
+            }
+
+            // pierwsza linia: [liczba miast][rozwiązanie (tutaj 0 bo losowe)]
             // kolejnie linie: [miasto][odległości do wszystkich innych(tam gdzie jest obecne miasto = 0)]
             rng = new Random();
             List<int> dataList = new List<int>();
             dataList.Add(cityAmount);
-            int lower = (int)(cityAmount / 2);
-            int upper = (int)(cityAmount * 1.5);
+            dataList.Add(0);
+
+            //int lower = cityAmount / 2;
+            //int upper = (int) (cityAmount * 1.5);
+
             for (int i = 0; i < cityAmount; i++)
             {
                 for (int j = 0; j < cityAmount; j++)

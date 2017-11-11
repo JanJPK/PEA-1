@@ -59,11 +59,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salesman\ISalesman.cs" />
     <Compile Include="Salesman\SalesmanDynamic.cs" />
     <Compile Include="Salesman\SalesmanData.cs" />
     <Compile Include="Salesman\SalesmanGenetic.cs" />
     <Compile Include="Salesman\SalesmanLocalSearch.cs" />
+    <Compile Include="Utility\AutoTester.cs" />
+    <Compile Include="Utility\Clock.cs" />
     <Compile Include="Utility\DataGenerator.cs" />
+    <Compile Include="Utility\SourceFolder.cs" />
     <EmbeddedResource Include="FormDisplay.resx">
       <DependentUpon>FormDisplay.cs</DependentUpon>
     </EmbeddedResource>

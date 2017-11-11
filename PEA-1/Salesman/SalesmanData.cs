@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PEA_1.Salesman
 {
@@ -16,14 +13,19 @@ namespace PEA_1.Salesman
 
         public int Size { get; set; }
 
+        public int Solution { get; set; }
+
         public SalesmanData(List<int> InputList)
         {
             // InputList[0] = ilość miast.
             Size = InputList[0];
+            // InputList[1] = rozwiązanie.
+            Solution = InputList[1];
+
             Matrix = new int[Size, Size];
             // W każdym wierszu jest [Size] liczb.
             // Początek wiersza + [Size] = początek kolejnego wiersza.
-            int firstInRow = 1; // Index pierwszego elementu w wierszu.
+            int firstInRow = 2; // Index pierwszego elementu w wierszu.
             for (int i = 0; i < Size; i++)
             {
                 for (int j = firstInRow; j < Size + firstInRow; j++)
@@ -55,6 +57,7 @@ namespace PEA_1.Salesman
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("Liczba miast: " + Size + Environment.NewLine);
+            sb.Append("Optymalne rozwiązanie (0 jeżeli nie zostało wczytane): " + Solution + Environment.NewLine);
             sb.Append("Dostępne miasta: " + Environment.NewLine);
             for (int i = 0; i < Size; i++)
             {

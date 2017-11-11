@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBoxLoadData = new System.Windows.Forms.GroupBox();
-            this.labelMatrix = new System.Windows.Forms.Label();
+            this.comboBoxLoadDataFilenames = new System.Windows.Forms.ComboBox();
             this.buttonLoadData = new System.Windows.Forms.Button();
             this.buttonDisplayData = new System.Windows.Forms.Button();
-            this.textBoxLoadDataFilename = new System.Windows.Forms.TextBox();
             this.groupBoxSalesman = new System.Windows.Forms.GroupBox();
             this.buttonSalesmanAll = new System.Windows.Forms.Button();
             this.checkBoxSalesmanGenetic = new System.Windows.Forms.CheckBox();
@@ -45,41 +44,53 @@
             this.textBoxSalesmanDynamic = new System.Windows.Forms.TextBox();
             this.buttonSalesmanDynamic = new System.Windows.Forms.Button();
             this.buttonSalesman = new System.Windows.Forms.Button();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabPageManual = new System.Windows.Forms.TabPage();
+            this.tabPageAuto = new System.Windows.Forms.TabPage();
+            this.tabPageDebug = new System.Windows.Forms.TabPage();
+            this.groupBoxCreate = new System.Windows.Forms.GroupBox();
+            this.textBoxDataGeneratorSize = new System.Windows.Forms.TextBox();
+            this.buttonDataGenerator = new System.Windows.Forms.Button();
             this.groupBoxRepeat = new System.Windows.Forms.GroupBox();
             this.textBoxRepeatNew = new System.Windows.Forms.TextBox();
             this.textBoxRepeatCurrent = new System.Windows.Forms.TextBox();
             this.buttonRepeatChange = new System.Windows.Forms.Button();
-            this.groupBoxCreate = new System.Windows.Forms.GroupBox();
-            this.textBoxDataGeneratorSize = new System.Windows.Forms.TextBox();
-            this.buttonDataGenerator = new System.Windows.Forms.Button();
+            this.textBoxAutoTestData = new System.Windows.Forms.TextBox();
+            this.buttonAutoAddTest = new System.Windows.Forms.Button();
+            this.textBoxAutoPlannedTests = new System.Windows.Forms.TextBox();
+            this.textBoxAutoProgress = new System.Windows.Forms.TextBox();
+            this.buttonAutoStart = new System.Windows.Forms.Button();
             this.groupBoxLoadData.SuspendLayout();
             this.groupBoxSalesman.SuspendLayout();
-            this.groupBoxRepeat.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
+            this.tabPageManual.SuspendLayout();
+            this.tabPageAuto.SuspendLayout();
+            this.tabPageDebug.SuspendLayout();
             this.groupBoxCreate.SuspendLayout();
+            this.groupBoxRepeat.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxLoadData
             // 
             this.groupBoxLoadData.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBoxLoadData.Controls.Add(this.labelMatrix);
+            this.groupBoxLoadData.Controls.Add(this.comboBoxLoadDataFilenames);
             this.groupBoxLoadData.Controls.Add(this.buttonLoadData);
             this.groupBoxLoadData.Controls.Add(this.buttonDisplayData);
-            this.groupBoxLoadData.Controls.Add(this.textBoxLoadDataFilename);
-            this.groupBoxLoadData.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxLoadData.Location = new System.Drawing.Point(6, 6);
             this.groupBoxLoadData.Name = "groupBoxLoadData";
-            this.groupBoxLoadData.Size = new System.Drawing.Size(304, 82);
+            this.groupBoxLoadData.Size = new System.Drawing.Size(340, 82);
             this.groupBoxLoadData.TabIndex = 6;
             this.groupBoxLoadData.TabStop = false;
             this.groupBoxLoadData.Text = "Wczytywanie danych";
             // 
-            // labelMatrix
+            // comboBoxLoadDataFilenames
             // 
-            this.labelMatrix.AutoSize = true;
-            this.labelMatrix.Location = new System.Drawing.Point(15, 52);
-            this.labelMatrix.Name = "labelMatrix";
-            this.labelMatrix.Size = new System.Drawing.Size(84, 13);
-            this.labelMatrix.TabIndex = 2;
-            this.labelMatrix.Text = "Podgląd danych";
+            this.comboBoxLoadDataFilenames.FormattingEnabled = true;
+            this.comboBoxLoadDataFilenames.Location = new System.Drawing.Point(6, 21);
+            this.comboBoxLoadDataFilenames.Name = "comboBoxLoadDataFilenames";
+            this.comboBoxLoadDataFilenames.Size = new System.Drawing.Size(106, 21);
+            this.comboBoxLoadDataFilenames.TabIndex = 5;
+            this.comboBoxLoadDataFilenames.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoadDataFilenames_SelectedIndexChanged);
             // 
             // buttonLoadData
             // 
@@ -93,21 +104,13 @@
             // 
             // buttonDisplayData
             // 
-            this.buttonDisplayData.Location = new System.Drawing.Point(118, 47);
+            this.buttonDisplayData.Location = new System.Drawing.Point(194, 19);
             this.buttonDisplayData.Name = "buttonDisplayData";
             this.buttonDisplayData.Size = new System.Drawing.Size(70, 23);
             this.buttonDisplayData.TabIndex = 0;
             this.buttonDisplayData.Text = "Wypisz";
             this.buttonDisplayData.UseVisualStyleBackColor = true;
             this.buttonDisplayData.Click += new System.EventHandler(this.buttonDisplayData_Click);
-            // 
-            // textBoxLoadDataFilename
-            // 
-            this.textBoxLoadDataFilename.Location = new System.Drawing.Point(6, 19);
-            this.textBoxLoadDataFilename.Name = "textBoxLoadDataFilename";
-            this.textBoxLoadDataFilename.Size = new System.Drawing.Size(106, 20);
-            this.textBoxLoadDataFilename.TabIndex = 0;
-            this.textBoxLoadDataFilename.TextChanged += new System.EventHandler(this.textBoxLoadDataFilename_TextChanged);
             // 
             // groupBoxSalesman
             // 
@@ -123,9 +126,9 @@
             this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanDynamic);
             this.groupBoxSalesman.Controls.Add(this.buttonSalesmanDynamic);
             this.groupBoxSalesman.Controls.Add(this.buttonSalesman);
-            this.groupBoxSalesman.Location = new System.Drawing.Point(12, 100);
+            this.groupBoxSalesman.Location = new System.Drawing.Point(6, 94);
             this.groupBoxSalesman.Name = "groupBoxSalesman";
-            this.groupBoxSalesman.Size = new System.Drawing.Size(304, 133);
+            this.groupBoxSalesman.Size = new System.Drawing.Size(340, 211);
             this.groupBoxSalesman.TabIndex = 16;
             this.groupBoxSalesman.TabStop = false;
             this.groupBoxSalesman.Text = "Komiwojażer";
@@ -237,16 +240,94 @@
             this.buttonSalesman.UseVisualStyleBackColor = true;
             this.buttonSalesman.Click += new System.EventHandler(this.buttonSalesman_Click);
             // 
+            // tabControlMain
+            // 
+            this.tabControlMain.Controls.Add(this.tabPageManual);
+            this.tabControlMain.Controls.Add(this.tabPageAuto);
+            this.tabControlMain.Controls.Add(this.tabPageDebug);
+            this.tabControlMain.Location = new System.Drawing.Point(12, 12);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(360, 337);
+            this.tabControlMain.TabIndex = 20;
+            // 
+            // tabPageManual
+            // 
+            this.tabPageManual.Controls.Add(this.groupBoxLoadData);
+            this.tabPageManual.Controls.Add(this.groupBoxSalesman);
+            this.tabPageManual.Location = new System.Drawing.Point(4, 22);
+            this.tabPageManual.Name = "tabPageManual";
+            this.tabPageManual.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageManual.Size = new System.Drawing.Size(352, 311);
+            this.tabPageManual.TabIndex = 0;
+            this.tabPageManual.Text = "Manual";
+            this.tabPageManual.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAuto
+            // 
+            this.tabPageAuto.Controls.Add(this.buttonAutoStart);
+            this.tabPageAuto.Controls.Add(this.textBoxAutoProgress);
+            this.tabPageAuto.Controls.Add(this.textBoxAutoPlannedTests);
+            this.tabPageAuto.Controls.Add(this.buttonAutoAddTest);
+            this.tabPageAuto.Controls.Add(this.textBoxAutoTestData);
+            this.tabPageAuto.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAuto.Name = "tabPageAuto";
+            this.tabPageAuto.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAuto.Size = new System.Drawing.Size(352, 311);
+            this.tabPageAuto.TabIndex = 1;
+            this.tabPageAuto.Text = "Auto";
+            this.tabPageAuto.UseVisualStyleBackColor = true;
+            // 
+            // tabPageDebug
+            // 
+            this.tabPageDebug.Controls.Add(this.groupBoxCreate);
+            this.tabPageDebug.Controls.Add(this.groupBoxRepeat);
+            this.tabPageDebug.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDebug.Name = "tabPageDebug";
+            this.tabPageDebug.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDebug.Size = new System.Drawing.Size(352, 311);
+            this.tabPageDebug.TabIndex = 2;
+            this.tabPageDebug.Text = "Debug";
+            this.tabPageDebug.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxCreate
+            // 
+            this.groupBoxCreate.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBoxCreate.Controls.Add(this.textBoxDataGeneratorSize);
+            this.groupBoxCreate.Controls.Add(this.buttonDataGenerator);
+            this.groupBoxCreate.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxCreate.Name = "groupBoxCreate";
+            this.groupBoxCreate.Size = new System.Drawing.Size(304, 82);
+            this.groupBoxCreate.TabIndex = 20;
+            this.groupBoxCreate.TabStop = false;
+            this.groupBoxCreate.Text = "Tworzenie danych";
+            // 
+            // textBoxDataGeneratorSize
+            // 
+            this.textBoxDataGeneratorSize.Location = new System.Drawing.Point(6, 19);
+            this.textBoxDataGeneratorSize.Name = "textBoxDataGeneratorSize";
+            this.textBoxDataGeneratorSize.Size = new System.Drawing.Size(70, 20);
+            this.textBoxDataGeneratorSize.TabIndex = 15;
+            // 
+            // buttonDataGenerator
+            // 
+            this.buttonDataGenerator.Location = new System.Drawing.Point(6, 45);
+            this.buttonDataGenerator.Name = "buttonDataGenerator";
+            this.buttonDataGenerator.Size = new System.Drawing.Size(70, 23);
+            this.buttonDataGenerator.TabIndex = 4;
+            this.buttonDataGenerator.Text = "Twórz";
+            this.buttonDataGenerator.UseVisualStyleBackColor = true;
+            // 
             // groupBoxRepeat
             // 
             this.groupBoxRepeat.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBoxRepeat.Controls.Add(this.textBoxRepeatNew);
             this.groupBoxRepeat.Controls.Add(this.textBoxRepeatCurrent);
             this.groupBoxRepeat.Controls.Add(this.buttonRepeatChange);
-            this.groupBoxRepeat.Location = new System.Drawing.Point(12, 327);
+            this.groupBoxRepeat.Location = new System.Drawing.Point(6, 94);
             this.groupBoxRepeat.Name = "groupBoxRepeat";
             this.groupBoxRepeat.Size = new System.Drawing.Size(304, 51);
-            this.groupBoxRepeat.TabIndex = 19;
+            this.groupBoxRepeat.TabIndex = 21;
             this.groupBoxRepeat.TabStop = false;
             this.groupBoxRepeat.Text = "Mnożnik";
             // 
@@ -273,56 +354,70 @@
             this.buttonRepeatChange.TabIndex = 4;
             this.buttonRepeatChange.Text = "Zmień";
             this.buttonRepeatChange.UseVisualStyleBackColor = true;
-            this.buttonRepeatChange.Click += new System.EventHandler(this.buttonRepeatChange_Click);
             // 
-            // groupBoxCreate
+            // textBoxAutoTestData
             // 
-            this.groupBoxCreate.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBoxCreate.Controls.Add(this.textBoxDataGeneratorSize);
-            this.groupBoxCreate.Controls.Add(this.buttonDataGenerator);
-            this.groupBoxCreate.Location = new System.Drawing.Point(12, 239);
-            this.groupBoxCreate.Name = "groupBoxCreate";
-            this.groupBoxCreate.Size = new System.Drawing.Size(304, 82);
-            this.groupBoxCreate.TabIndex = 18;
-            this.groupBoxCreate.TabStop = false;
-            this.groupBoxCreate.Text = "Tworzenie danych";
+            this.textBoxAutoTestData.Location = new System.Drawing.Point(6, 6);
+            this.textBoxAutoTestData.Name = "textBoxAutoTestData";
+            this.textBoxAutoTestData.Size = new System.Drawing.Size(230, 20);
+            this.textBoxAutoTestData.TabIndex = 0;
             // 
-            // textBoxDataGeneratorSize
+            // buttonAutoAddTest
             // 
-            this.textBoxDataGeneratorSize.Location = new System.Drawing.Point(6, 19);
-            this.textBoxDataGeneratorSize.Name = "textBoxDataGeneratorSize";
-            this.textBoxDataGeneratorSize.Size = new System.Drawing.Size(70, 20);
-            this.textBoxDataGeneratorSize.TabIndex = 15;
+            this.buttonAutoAddTest.Location = new System.Drawing.Point(242, 6);
+            this.buttonAutoAddTest.Name = "buttonAutoAddTest";
+            this.buttonAutoAddTest.Size = new System.Drawing.Size(42, 20);
+            this.buttonAutoAddTest.TabIndex = 1;
+            this.buttonAutoAddTest.Text = "OK";
+            this.buttonAutoAddTest.UseVisualStyleBackColor = true;
+            this.buttonAutoAddTest.Click += new System.EventHandler(this.buttonAutoAddTest_Click);
             // 
-            // buttonDataGenerator
+            // textBoxAutoPlannedTests
             // 
-            this.buttonDataGenerator.Location = new System.Drawing.Point(6, 45);
-            this.buttonDataGenerator.Name = "buttonDataGenerator";
-            this.buttonDataGenerator.Size = new System.Drawing.Size(70, 23);
-            this.buttonDataGenerator.TabIndex = 4;
-            this.buttonDataGenerator.Text = "Twórz";
-            this.buttonDataGenerator.UseVisualStyleBackColor = true;
-            this.buttonDataGenerator.Click += new System.EventHandler(this.buttonDataGenerator_Click);
+            this.textBoxAutoPlannedTests.Location = new System.Drawing.Point(6, 32);
+            this.textBoxAutoPlannedTests.Multiline = true;
+            this.textBoxAutoPlannedTests.Name = "textBoxAutoPlannedTests";
+            this.textBoxAutoPlannedTests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxAutoPlannedTests.Size = new System.Drawing.Size(340, 247);
+            this.textBoxAutoPlannedTests.TabIndex = 2;
+            // 
+            // textBoxAutoProgress
+            // 
+            this.textBoxAutoProgress.Location = new System.Drawing.Point(6, 285);
+            this.textBoxAutoProgress.Name = "textBoxAutoProgress";
+            this.textBoxAutoProgress.Size = new System.Drawing.Size(340, 20);
+            this.textBoxAutoProgress.TabIndex = 3;
+            // 
+            // buttonAutoStart
+            // 
+            this.buttonAutoStart.Location = new System.Drawing.Point(290, 6);
+            this.buttonAutoStart.Name = "buttonAutoStart";
+            this.buttonAutoStart.Size = new System.Drawing.Size(56, 20);
+            this.buttonAutoStart.TabIndex = 4;
+            this.buttonAutoStart.Text = "START";
+            this.buttonAutoStart.UseVisualStyleBackColor = true;
+            this.buttonAutoStart.Click += new System.EventHandler(this.buttonAutoStart_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 392);
-            this.Controls.Add(this.groupBoxRepeat);
-            this.Controls.Add(this.groupBoxCreate);
-            this.Controls.Add(this.groupBoxSalesman);
-            this.Controls.Add(this.groupBoxLoadData);
+            this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Controls.Add(this.tabControlMain);
             this.Name = "FormMain";
             this.Text = "Okno główne";
             this.groupBoxLoadData.ResumeLayout(false);
-            this.groupBoxLoadData.PerformLayout();
             this.groupBoxSalesman.ResumeLayout(false);
             this.groupBoxSalesman.PerformLayout();
-            this.groupBoxRepeat.ResumeLayout(false);
-            this.groupBoxRepeat.PerformLayout();
+            this.tabControlMain.ResumeLayout(false);
+            this.tabPageManual.ResumeLayout(false);
+            this.tabPageAuto.ResumeLayout(false);
+            this.tabPageAuto.PerformLayout();
+            this.tabPageDebug.ResumeLayout(false);
             this.groupBoxCreate.ResumeLayout(false);
             this.groupBoxCreate.PerformLayout();
+            this.groupBoxRepeat.ResumeLayout(false);
+            this.groupBoxRepeat.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -330,10 +425,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxLoadData;
-        private System.Windows.Forms.Label labelMatrix;
         private System.Windows.Forms.Button buttonLoadData;
         private System.Windows.Forms.Button buttonDisplayData;
-        private System.Windows.Forms.TextBox textBoxLoadDataFilename;
         private System.Windows.Forms.GroupBox groupBoxSalesman;
         private System.Windows.Forms.Button buttonSalesmanAll;
         private System.Windows.Forms.CheckBox checkBoxSalesmanGenetic;
@@ -346,13 +439,23 @@
         private System.Windows.Forms.TextBox textBoxSalesmanDynamic;
         private System.Windows.Forms.Button buttonSalesmanDynamic;
         private System.Windows.Forms.Button buttonSalesman;
+        private System.Windows.Forms.ComboBox comboBoxLoadDataFilenames;
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabPageManual;
+        private System.Windows.Forms.TabPage tabPageAuto;
+        private System.Windows.Forms.TabPage tabPageDebug;
+        private System.Windows.Forms.GroupBox groupBoxCreate;
+        private System.Windows.Forms.TextBox textBoxDataGeneratorSize;
+        private System.Windows.Forms.Button buttonDataGenerator;
         private System.Windows.Forms.GroupBox groupBoxRepeat;
         private System.Windows.Forms.TextBox textBoxRepeatNew;
         private System.Windows.Forms.TextBox textBoxRepeatCurrent;
         private System.Windows.Forms.Button buttonRepeatChange;
-        private System.Windows.Forms.GroupBox groupBoxCreate;
-        private System.Windows.Forms.TextBox textBoxDataGeneratorSize;
-        private System.Windows.Forms.Button buttonDataGenerator;
+        private System.Windows.Forms.TextBox textBoxAutoProgress;
+        private System.Windows.Forms.TextBox textBoxAutoPlannedTests;
+        private System.Windows.Forms.Button buttonAutoAddTest;
+        private System.Windows.Forms.TextBox textBoxAutoTestData;
+        private System.Windows.Forms.Button buttonAutoStart;
     }
 }
 

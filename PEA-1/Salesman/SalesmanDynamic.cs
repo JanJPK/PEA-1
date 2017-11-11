@@ -6,7 +6,7 @@ using System.Text;
 namespace PEA_1.Salesman
 {
     // https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm
-    internal class SalesmanDynamic
+    internal class SalesmanDynamic : ISalesman
     {
         // Lista miast.
         private readonly List<int> cities;
@@ -19,8 +19,6 @@ namespace PEA_1.Salesman
 
         // Wybrana ścieżka.
         private readonly List<int> path;
-
-        private Queue<int> qu;
 
         /// <summary>
         ///     Konstruktor przyjmujący dane i wypełniający listę cities liczbami z zakresu [0, data.Size].
@@ -130,6 +128,15 @@ namespace PEA_1.Salesman
                     }
                 }
             }
+        }
+
+        /// <summary>
+        ///     Na potrzeby zapisu wyników do pliku.
+        /// </summary>
+        /// <returns>Typ algorytmu.</returns>
+        public string Type()
+        {
+            return "dynamic";
         }
 
         /// <summary>
