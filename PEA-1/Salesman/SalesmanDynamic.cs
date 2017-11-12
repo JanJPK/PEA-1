@@ -20,6 +20,8 @@ namespace PEA_1.Salesman
         // Wybrana ścieżka.
         private readonly List<int> path;
 
+        private int counter = 0;
+
         /// <summary>
         ///     Konstruktor przyjmujący dane i wypełniający listę cities liczbami z zakresu [0, data.Size].
         /// </summary>
@@ -48,10 +50,10 @@ namespace PEA_1.Salesman
             set.Remove(startingCity);
 
             // Wywołanie głównej metody rekurencyjnej.
-            Node root = new Node();
+            NodeDynamic root = new NodeDynamic();
             finalDistance = Recursion(startingCity, set, root);
 
-            // Przetwarzanie obiektów Node i tworzenie ścieżki.
+            // Przetwarzanie obiektów NodeDynamic i tworzenie ścieżki.
             path.Add(startingCity);
             FindPath(root);
         }
@@ -61,15 +63,16 @@ namespace PEA_1.Salesman
         /// </summary>
         /// <param name="startingCity">Parametr x w g(x, S[]).</param>
         /// <param name="set">Zestaw S w g(x, S[]).</param>
-        /// <param name="node">Dodatkowy obiekt który pozwoli odwtorzyć ścieżkę.</param>
+        /// <param name="nodeDynamickowy obiekt który pozwoli odwtorzyć ścieżkę.</param>
         /// <returns></returns>
-        private int Recursion(int startingCity, HashSet<int> set, Node node)
+        private int Recursion(int startingCity, HashSet<int> set, NodeDynamic nodeDynamic)
         {
+            counter++;
             int bestDistance;
             if (set.Count > 0)
             {
                 bestDistance = int.MaxValue;
-                node.Children = new Node[set.Count];
+                nodeDynamic.Children = new NodeDynamic[set.Count];
                 int bestCity = 0;
                 int i = 0;
 
@@ -79,15 +82,15 @@ namespace PEA_1.Salesman
                 // Matematycznie:    c(ab)             + g(b, {c})
                 foreach (var currentCity in set)
                 {
-                    node.Children[i] = new Node(currentCity);
+                    nodeDynamic.Children[i] = new NodeDynamic(currentCity);
 
                     // Zestaw pomniejszony o aktualnie przetwarzanie miasto.
                     HashSet<int> nextSet = new HashSet<int>(set);
                     nextSet.Remove(currentCity);
 
                     // Nowy dystans.
-                    //int currentDistance = Recursion(currentCity, nextSet, node.Children[i]) + data.Matrix[startingCity, currentCity];
-                    int a = Recursion(currentCity, nextSet, node.Children[i]);
+                    //int currentDistance = Recursion(currentCity, nextSet, nodeDynamic.Children[i]) + data.Matrix[startingCity, currentCity];
+                    int a = Recursion(currentCity, nextSet, nodeDynamic.Children[i]);
                     int b = data.Matrix[startingCity, currentCity];
                     int currentDistance = a + b;
 
@@ -100,13 +103,13 @@ namespace PEA_1.Salesman
                     i++;
                 }
 
-                node.Children[bestCity].Selected = true;
+                nodeDynamic.Children[bestCity].Selected = true;
             }
             else
             {
                 // Przypadek w którym następuje powrót do miasta startowego - set został opróżniony.
                 bestDistance = data.Matrix[startingCity, 0];
-                node.Children = new[] {new Node(cities[0], true)};
+                nodeDynamic.Children = new[] {new NodeDynamic(cities[0], true)};
             }
             return bestDistance;
         }
@@ -114,12 +117,12 @@ namespace PEA_1.Salesman
         /// <summary>
         ///     Funkcja wypełniająca tablice zawierającą optymalną ścieżkę.
         /// </summary>
-        /// <param name="node">Obecnie przetwarzany węzeł.</param>
-        private void FindPath(Node node)
+        /// <param name="nodeDynamicie przetwarzany węzeł.</param>
+        private void FindPath(NodeDynamic nodeDynamic)
         {
-            if (node.Children != null)
+            if (nodeDynamic.Children != null)
             {
-                foreach (Node child in node.Children)
+                foreach (NodeDynamic child in nodeDynamic.Children)
                 {
                     if (child.Selected)
                     {
@@ -166,19 +169,19 @@ namespace PEA_1.Salesman
     /// <summary>
     ///     Obiekty pozwalające odnaleźć ścieżkę po zakończeniu obliczeń.
     /// </summary>
-    internal class Node
+    internal class NodeDynamic
     {
         public int ID { get; set; }
         public bool Selected { get; set; }
-        public Node[] Children { get; set; }
+        public NodeDynamic[] Children { get; set; }
 
-        public Node(int id, bool selected = false)
+        public NodeDynamic(int id, bool selected = false)
         {
             ID = id;
             Selected = selected;
         }
 
-        public Node()
+        public NodeDynamic()
         {
         }
 

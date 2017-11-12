@@ -10,28 +10,6 @@ namespace PEA_1
 {
     public partial class FormMain : Form
     {
-        #region Zmienne
-
-        // Lista zawierająca dane wejściowe.
-        public List<int> InputList { get; private set; }
-
-        // Algorytmy, i ich dane.
-        private SalesmanData salesmanData;
-        private SalesmanDynamic salesmanDynamic;
-        private SalesmanGenetic salesmanGenetic;
-        private SalesmanLocalSearch salesmanLocalSearch;
-
-        // AutoTest.
-        private List<Test> tests; 
-
-        // Przetwarzanie folderu z exe.
-        private readonly SourceFolder folder;
-
-        // Repetycja.
-        private int repeat;
-
-        #endregion
-
         public FormMain()
         {
             InitializeComponent();
@@ -44,32 +22,48 @@ namespace PEA_1
             comboBoxLoadDataFilenames.DataSource = folder.Filenames;
             comboBoxLoadDataFilenames.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            checkBoxSalesmanDynamic.Checked = true;
+            checkBoxSalesmanBnB.Checked = true;
             //checkBoxSalesmanLocalSearch.Checked = true;
             //checkBoxSalesmanGenetic.Checked = true;
-
-            textBoxDataGeneratorSize.Text = "100";
-
-            repeat = 1;
-            textBoxRepeatCurrent.Text = repeat.ToString();
         }
+
+        #region Zmienne
+
+        // Lista zawierająca dane wejściowe.
+        public List<int> InputList { get; private set; }
+
+        // Algorytmy, i ich dane.
+        private SalesmanData salesmanData;
+
+        private SalesmanGenetic salesmanGenetic;
+        private SalesmanLocalSearch salesmanLocalSearch;
+        private SalesmanBnB salesmanBnB;
+
+        // AutoTest.
+        private readonly List<Test> tests;
+
+        // Przetwarzanie folderu z exe.
+        private readonly SourceFolder folder;
+
+        #endregion
 
         #region Eventy WinForms
 
-        //
-        //
-        // Start komiwojażera.
+        /// <summary>
+        ///     Start komiwojażera.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSalesman_Click(object sender, EventArgs e)
         {
             if (salesmanData != null)
             {
-                if (checkBoxSalesmanDynamic.Checked)
+                if (checkBoxSalesmanBnB.Checked)
                 {
-                    for (int i = 0; i < repeat; i++)
-                    {
-                        salesmanDynamic = new SalesmanDynamic(salesmanData);
-                        salesmanDynamic.Start();
-                    }
+                    salesmanBnB = new SalesmanBnB(salesmanData);
+                    Clock.Start();
+                    salesmanBnB.Start();
+                    textBoxSalesmanBnB.Text = Clock.StopAndReturn().ToString();
                 }
             }
             else
@@ -79,14 +73,16 @@ namespace PEA_1
             }
         }
 
-        //
-        //
-        // Wyświetlanie wyniku komiwojażera - Dynamic.
-        private void buttonSalesmanDynamic_Click(object sender, EventArgs e)
+        /// <summary>
+        ///     Wyświetlanie wyniku komiwojażera - BnB.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSalesmanBnB_Click(object sender, EventArgs e)
         {
-            if (salesmanDynamic != null)
+            if (salesmanBnB != null)
             {
-                FormDisplay fD = new FormDisplay(salesmanDynamic.ToString());
+                FormDisplay fD = new FormDisplay(salesmanBnB.ToString());
                 fD.Show();
             }
             else
@@ -96,9 +92,11 @@ namespace PEA_1
             }
         }
 
-        //
-        //
-        // Wyświetlanie wyniku komiwojażera - poszukiwane lokalne.
+        /// <summary>
+        ///     Wyświetlanie wyniku komiwojażera - poszukiwane lokalne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSalesmanLocalSearch_Click(object sender, EventArgs e)
         {
             if (salesmanLocalSearch != null)
@@ -113,9 +111,11 @@ namespace PEA_1
             }
         }
 
-        //
-        //
-        // Wyświetlanie wyniku komiwojażera - Genetyczny.
+        /// <summary>
+        ///     Wyświetlanie wyniku komiwojażera - Genetyczny.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSalesmanGenetic_Click(object sender, EventArgs e)
         {
             if (salesmanGenetic != null)
@@ -130,14 +130,16 @@ namespace PEA_1
             }
         }
 
-        //
-        //
-        // Wyświetlanie wszystkich wyników - komiwjoażer.
+        /// <summary>
+        ///     Wyświetlanie wszystkich wyników - komiwjoażer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSalesmanAll_Click(object sender, EventArgs e)
         {
-            if (salesmanDynamic != null)
+            if (salesmanBnB != null)
             {
-                FormDisplay fD = new FormDisplay(salesmanDynamic.ToString());
+                FormDisplay fD = new FormDisplay(salesmanBnB.ToString());
                 fD.Show();
             }
             if (salesmanLocalSearch != null)
@@ -152,68 +154,70 @@ namespace PEA_1
             }
         }
 
-        //
-        //
-        // Wczytywanie danych.
+        /// <summary>
+        ///     Wczytywanie danych.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLoadData_Click(object sender, EventArgs e)
         {
             ReadFile(folder.FilePaths[comboBoxLoadDataFilenames.SelectedIndex]);
             salesmanData = new SalesmanData(InputList);
         }
 
-        //
-        //
-        // Wyświetlanie wczytanych danych.
+        /// <summary>
+        ///     Wyświetlanie wczytanych danych.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDisplayData_Click(object sender, EventArgs e)
         {
             FormDisplay fD = new FormDisplay(salesmanData.ToString());
             fD.Show();
         }
 
-        //
-        //
-        // Tworzenie danych.
-        private void buttonDataGenerator_Click(object sender, EventArgs e)
+        /// <summary>
+        ///     Zmiana koloru przycisku gdy zmieniamy wybrany plik w comboBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxLoadDataFilenames_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int size;
-            if (!int.TryParse(textBoxDataGeneratorSize.Text, out size))
-            {
-                MessageBox.Show("Nieprawidłowa liczba", "Błąd",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                salesmanData = null;
-                return;
-            }
-
-            salesmanData = new SalesmanData(DataGenerator.Salesman(size));
-            //textBoxLoadDataFilename.BackColor = Color.MediumAquamarine;
-            //textBoxLoadDataFilename.Text = "RANDOM";
+            buttonLoadData.BackColor = SystemColors.Control;
         }
 
-        //
-        //
-        // Zmiana mnożnika
-        private void buttonRepeatChange_Click(object sender, EventArgs e)
+        /// <summary>
+        ///     Dodaj Test do listy zadań.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAutoAddTest_Click(object sender, EventArgs e)
         {
-            int repeatNew;
-            if (!int.TryParse(textBoxRepeatNew.Text, out repeatNew))
-            {
-                MessageBox.Show("Nieprawidłowy mnożnik", "Błąd",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                InputList = null;
-                return;
-            }
-            repeat = repeatNew;
-            textBoxRepeatCurrent.Text = repeat.ToString();
-            textBoxRepeatNew.Text = "";
+            Test test = new Test(textBoxAutoTestData.Text);
+            tests.Add(test);
+            textBoxAutoPlannedTests.AppendText(test + Environment.NewLine);
+        }
+
+        /// <summary>
+        ///     Uruchm AutoTester.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAutoStart_Click(object sender, EventArgs e)
+        {
+            AutoTester.ExportToTxt(AutoTester.Multiple(tests, this));
+            tests.Clear();
+            textBoxAutoPlannedTests.Clear();
         }
 
         #endregion
 
         #region Funkcje
 
-        //
-        //
-        // Wczytywanie z pliku.
+        /// <summary>
+        ///     Wczytywanie z pliku.
+        /// </summary>
+        /// <param name="filepath"></param>
         private void ReadFile(string filepath)
         {
             try
@@ -263,31 +267,15 @@ namespace PEA_1
             }
         }
 
-        #endregion
-
-        private void comboBoxLoadDataFilenames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            buttonLoadData.BackColor = SystemColors.Control;
-        }
-
+        /// <summary>
+        ///     Wyświetlanie postępu testowania.
+        /// </summary>
+        /// <param name="message">Wiadomość od AutoTester.</param>
         public void ShowProgress(string message)
         {
             textBoxAutoProgress.Text = message;
         }
 
-        private void buttonAutoAddTest_Click(object sender, EventArgs e)
-        {
-            Test test = new Test(textBoxAutoTestData.Text);
-            tests.Add(test);
-            textBoxAutoPlannedTests.AppendText(test + Environment.NewLine);
-        }
-
-        private void buttonAutoStart_Click(object sender, EventArgs e)
-        {
-            AutoTester.ExportToTxt(AutoTester.Multiple(tests, this));
-            tests.Clear();
-            textBoxAutoPlannedTests.Clear();
-        }
+        #endregion
     }
-
 }

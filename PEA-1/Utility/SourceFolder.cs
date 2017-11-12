@@ -37,7 +37,7 @@ namespace PEA_1.Utility
             FilePaths = Directory.GetFiles(FolderPath).ToList();
             for (int i = FilePaths.Count - 1; i > -1; i--)
             {
-                if (Path.GetExtension(FilePaths[i]) != ".txt" && !FilePaths[i].Contains("tsp"))
+                if (Path.GetExtension(FilePaths[i]) != ".txt" || !FilePaths[i].Contains("tsp"))
                 {
                     FilePaths.RemoveAt(i);
                 }

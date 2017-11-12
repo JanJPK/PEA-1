@@ -39,35 +39,25 @@
             this.buttonSalesmanGenetic = new System.Windows.Forms.Button();
             this.textBoxSalesmanLocalSearch = new System.Windows.Forms.TextBox();
             this.checkBoxSalesmanLocalSearch = new System.Windows.Forms.CheckBox();
-            this.checkBoxSalesmanDynamic = new System.Windows.Forms.CheckBox();
+            this.checkBoxSalesmanBnB = new System.Windows.Forms.CheckBox();
             this.buttonSalesmanLocalSearch = new System.Windows.Forms.Button();
-            this.textBoxSalesmanDynamic = new System.Windows.Forms.TextBox();
-            this.buttonSalesmanDynamic = new System.Windows.Forms.Button();
+            this.textBoxSalesmanBnB = new System.Windows.Forms.TextBox();
+            this.buttonSalesmanBnB = new System.Windows.Forms.Button();
             this.buttonSalesman = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageManual = new System.Windows.Forms.TabPage();
             this.tabPageAuto = new System.Windows.Forms.TabPage();
-            this.tabPageDebug = new System.Windows.Forms.TabPage();
-            this.groupBoxCreate = new System.Windows.Forms.GroupBox();
-            this.textBoxDataGeneratorSize = new System.Windows.Forms.TextBox();
-            this.buttonDataGenerator = new System.Windows.Forms.Button();
-            this.groupBoxRepeat = new System.Windows.Forms.GroupBox();
-            this.textBoxRepeatNew = new System.Windows.Forms.TextBox();
-            this.textBoxRepeatCurrent = new System.Windows.Forms.TextBox();
-            this.buttonRepeatChange = new System.Windows.Forms.Button();
-            this.textBoxAutoTestData = new System.Windows.Forms.TextBox();
-            this.buttonAutoAddTest = new System.Windows.Forms.Button();
-            this.textBoxAutoPlannedTests = new System.Windows.Forms.TextBox();
-            this.textBoxAutoProgress = new System.Windows.Forms.TextBox();
             this.buttonAutoStart = new System.Windows.Forms.Button();
+            this.textBoxAutoProgress = new System.Windows.Forms.TextBox();
+            this.textBoxAutoPlannedTests = new System.Windows.Forms.TextBox();
+            this.buttonAutoAddTest = new System.Windows.Forms.Button();
+            this.textBoxAutoTestData = new System.Windows.Forms.TextBox();
+            this.tabPageDebug = new System.Windows.Forms.TabPage();
             this.groupBoxLoadData.SuspendLayout();
             this.groupBoxSalesman.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageManual.SuspendLayout();
             this.tabPageAuto.SuspendLayout();
-            this.tabPageDebug.SuspendLayout();
-            this.groupBoxCreate.SuspendLayout();
-            this.groupBoxRepeat.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxLoadData
@@ -121,10 +111,10 @@
             this.groupBoxSalesman.Controls.Add(this.buttonSalesmanGenetic);
             this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanLocalSearch);
             this.groupBoxSalesman.Controls.Add(this.checkBoxSalesmanLocalSearch);
-            this.groupBoxSalesman.Controls.Add(this.checkBoxSalesmanDynamic);
+            this.groupBoxSalesman.Controls.Add(this.checkBoxSalesmanBnB);
             this.groupBoxSalesman.Controls.Add(this.buttonSalesmanLocalSearch);
-            this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanDynamic);
-            this.groupBoxSalesman.Controls.Add(this.buttonSalesmanDynamic);
+            this.groupBoxSalesman.Controls.Add(this.textBoxSalesmanBnB);
+            this.groupBoxSalesman.Controls.Add(this.buttonSalesmanBnB);
             this.groupBoxSalesman.Controls.Add(this.buttonSalesman);
             this.groupBoxSalesman.Location = new System.Drawing.Point(6, 94);
             this.groupBoxSalesman.Name = "groupBoxSalesman";
@@ -192,15 +182,15 @@
             this.checkBoxSalesmanLocalSearch.Text = "Local Search";
             this.checkBoxSalesmanLocalSearch.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSalesmanDynamic
+            // checkBoxSalesmanBnB
             // 
-            this.checkBoxSalesmanDynamic.AutoSize = true;
-            this.checkBoxSalesmanDynamic.Location = new System.Drawing.Point(12, 16);
-            this.checkBoxSalesmanDynamic.Name = "checkBoxSalesmanDynamic";
-            this.checkBoxSalesmanDynamic.Size = new System.Drawing.Size(67, 17);
-            this.checkBoxSalesmanDynamic.TabIndex = 12;
-            this.checkBoxSalesmanDynamic.Text = "Dynamic";
-            this.checkBoxSalesmanDynamic.UseVisualStyleBackColor = true;
+            this.checkBoxSalesmanBnB.AutoSize = true;
+            this.checkBoxSalesmanBnB.Location = new System.Drawing.Point(12, 16);
+            this.checkBoxSalesmanBnB.Name = "checkBoxSalesmanBnB";
+            this.checkBoxSalesmanBnB.Size = new System.Drawing.Size(40, 17);
+            this.checkBoxSalesmanBnB.TabIndex = 12;
+            this.checkBoxSalesmanBnB.Text = "B&B";
+            this.checkBoxSalesmanBnB.UseVisualStyleBackColor = true;
             // 
             // buttonSalesmanLocalSearch
             // 
@@ -213,22 +203,22 @@
             this.buttonSalesmanLocalSearch.UseVisualStyleBackColor = true;
             this.buttonSalesmanLocalSearch.Click += new System.EventHandler(this.buttonSalesmanLocalSearch_Click);
             // 
-            // textBoxSalesmanDynamic
+            // textBoxSalesmanBnB
             // 
-            this.textBoxSalesmanDynamic.Location = new System.Drawing.Point(132, 18);
-            this.textBoxSalesmanDynamic.Name = "textBoxSalesmanDynamic";
-            this.textBoxSalesmanDynamic.Size = new System.Drawing.Size(90, 20);
-            this.textBoxSalesmanDynamic.TabIndex = 10;
+            this.textBoxSalesmanBnB.Location = new System.Drawing.Point(132, 18);
+            this.textBoxSalesmanBnB.Name = "textBoxSalesmanBnB";
+            this.textBoxSalesmanBnB.Size = new System.Drawing.Size(90, 20);
+            this.textBoxSalesmanBnB.TabIndex = 10;
             // 
-            // buttonSalesmanDynamic
+            // buttonSalesmanBnB
             // 
-            this.buttonSalesmanDynamic.Location = new System.Drawing.Point(225, 16);
-            this.buttonSalesmanDynamic.Name = "buttonSalesmanDynamic";
-            this.buttonSalesmanDynamic.Size = new System.Drawing.Size(70, 23);
-            this.buttonSalesmanDynamic.TabIndex = 6;
-            this.buttonSalesmanDynamic.Text = "Wypisz";
-            this.buttonSalesmanDynamic.UseVisualStyleBackColor = true;
-            this.buttonSalesmanDynamic.Click += new System.EventHandler(this.buttonSalesmanDynamic_Click);
+            this.buttonSalesmanBnB.Location = new System.Drawing.Point(225, 16);
+            this.buttonSalesmanBnB.Name = "buttonSalesmanBnB";
+            this.buttonSalesmanBnB.Size = new System.Drawing.Size(70, 23);
+            this.buttonSalesmanBnB.TabIndex = 6;
+            this.buttonSalesmanBnB.Text = "Wypisz";
+            this.buttonSalesmanBnB.UseVisualStyleBackColor = true;
+            this.buttonSalesmanBnB.Click += new System.EventHandler(this.buttonSalesmanBnB_Click);
             // 
             // buttonSalesman
             // 
@@ -278,89 +268,31 @@
             this.tabPageAuto.Text = "Auto";
             this.tabPageAuto.UseVisualStyleBackColor = true;
             // 
-            // tabPageDebug
+            // buttonAutoStart
             // 
-            this.tabPageDebug.Controls.Add(this.groupBoxCreate);
-            this.tabPageDebug.Controls.Add(this.groupBoxRepeat);
-            this.tabPageDebug.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDebug.Name = "tabPageDebug";
-            this.tabPageDebug.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDebug.Size = new System.Drawing.Size(352, 311);
-            this.tabPageDebug.TabIndex = 2;
-            this.tabPageDebug.Text = "Debug";
-            this.tabPageDebug.UseVisualStyleBackColor = true;
+            this.buttonAutoStart.Location = new System.Drawing.Point(290, 6);
+            this.buttonAutoStart.Name = "buttonAutoStart";
+            this.buttonAutoStart.Size = new System.Drawing.Size(56, 20);
+            this.buttonAutoStart.TabIndex = 4;
+            this.buttonAutoStart.Text = "START";
+            this.buttonAutoStart.UseVisualStyleBackColor = true;
+            this.buttonAutoStart.Click += new System.EventHandler(this.buttonAutoStart_Click);
             // 
-            // groupBoxCreate
+            // textBoxAutoProgress
             // 
-            this.groupBoxCreate.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBoxCreate.Controls.Add(this.textBoxDataGeneratorSize);
-            this.groupBoxCreate.Controls.Add(this.buttonDataGenerator);
-            this.groupBoxCreate.Location = new System.Drawing.Point(6, 6);
-            this.groupBoxCreate.Name = "groupBoxCreate";
-            this.groupBoxCreate.Size = new System.Drawing.Size(304, 82);
-            this.groupBoxCreate.TabIndex = 20;
-            this.groupBoxCreate.TabStop = false;
-            this.groupBoxCreate.Text = "Tworzenie danych";
+            this.textBoxAutoProgress.Location = new System.Drawing.Point(6, 285);
+            this.textBoxAutoProgress.Name = "textBoxAutoProgress";
+            this.textBoxAutoProgress.Size = new System.Drawing.Size(340, 20);
+            this.textBoxAutoProgress.TabIndex = 3;
             // 
-            // textBoxDataGeneratorSize
+            // textBoxAutoPlannedTests
             // 
-            this.textBoxDataGeneratorSize.Location = new System.Drawing.Point(6, 19);
-            this.textBoxDataGeneratorSize.Name = "textBoxDataGeneratorSize";
-            this.textBoxDataGeneratorSize.Size = new System.Drawing.Size(70, 20);
-            this.textBoxDataGeneratorSize.TabIndex = 15;
-            // 
-            // buttonDataGenerator
-            // 
-            this.buttonDataGenerator.Location = new System.Drawing.Point(6, 45);
-            this.buttonDataGenerator.Name = "buttonDataGenerator";
-            this.buttonDataGenerator.Size = new System.Drawing.Size(70, 23);
-            this.buttonDataGenerator.TabIndex = 4;
-            this.buttonDataGenerator.Text = "Twórz";
-            this.buttonDataGenerator.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxRepeat
-            // 
-            this.groupBoxRepeat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBoxRepeat.Controls.Add(this.textBoxRepeatNew);
-            this.groupBoxRepeat.Controls.Add(this.textBoxRepeatCurrent);
-            this.groupBoxRepeat.Controls.Add(this.buttonRepeatChange);
-            this.groupBoxRepeat.Location = new System.Drawing.Point(6, 94);
-            this.groupBoxRepeat.Name = "groupBoxRepeat";
-            this.groupBoxRepeat.Size = new System.Drawing.Size(304, 51);
-            this.groupBoxRepeat.TabIndex = 21;
-            this.groupBoxRepeat.TabStop = false;
-            this.groupBoxRepeat.Text = "Mnożnik";
-            // 
-            // textBoxRepeatNew
-            // 
-            this.textBoxRepeatNew.Location = new System.Drawing.Point(82, 19);
-            this.textBoxRepeatNew.Name = "textBoxRepeatNew";
-            this.textBoxRepeatNew.Size = new System.Drawing.Size(70, 20);
-            this.textBoxRepeatNew.TabIndex = 16;
-            // 
-            // textBoxRepeatCurrent
-            // 
-            this.textBoxRepeatCurrent.Location = new System.Drawing.Point(6, 19);
-            this.textBoxRepeatCurrent.Name = "textBoxRepeatCurrent";
-            this.textBoxRepeatCurrent.ReadOnly = true;
-            this.textBoxRepeatCurrent.Size = new System.Drawing.Size(70, 20);
-            this.textBoxRepeatCurrent.TabIndex = 15;
-            // 
-            // buttonRepeatChange
-            // 
-            this.buttonRepeatChange.Location = new System.Drawing.Point(157, 19);
-            this.buttonRepeatChange.Name = "buttonRepeatChange";
-            this.buttonRepeatChange.Size = new System.Drawing.Size(70, 23);
-            this.buttonRepeatChange.TabIndex = 4;
-            this.buttonRepeatChange.Text = "Zmień";
-            this.buttonRepeatChange.UseVisualStyleBackColor = true;
-            // 
-            // textBoxAutoTestData
-            // 
-            this.textBoxAutoTestData.Location = new System.Drawing.Point(6, 6);
-            this.textBoxAutoTestData.Name = "textBoxAutoTestData";
-            this.textBoxAutoTestData.Size = new System.Drawing.Size(230, 20);
-            this.textBoxAutoTestData.TabIndex = 0;
+            this.textBoxAutoPlannedTests.Location = new System.Drawing.Point(6, 32);
+            this.textBoxAutoPlannedTests.Multiline = true;
+            this.textBoxAutoPlannedTests.Name = "textBoxAutoPlannedTests";
+            this.textBoxAutoPlannedTests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxAutoPlannedTests.Size = new System.Drawing.Size(340, 247);
+            this.textBoxAutoPlannedTests.TabIndex = 2;
             // 
             // buttonAutoAddTest
             // 
@@ -372,31 +304,22 @@
             this.buttonAutoAddTest.UseVisualStyleBackColor = true;
             this.buttonAutoAddTest.Click += new System.EventHandler(this.buttonAutoAddTest_Click);
             // 
-            // textBoxAutoPlannedTests
+            // textBoxAutoTestData
             // 
-            this.textBoxAutoPlannedTests.Location = new System.Drawing.Point(6, 32);
-            this.textBoxAutoPlannedTests.Multiline = true;
-            this.textBoxAutoPlannedTests.Name = "textBoxAutoPlannedTests";
-            this.textBoxAutoPlannedTests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxAutoPlannedTests.Size = new System.Drawing.Size(340, 247);
-            this.textBoxAutoPlannedTests.TabIndex = 2;
+            this.textBoxAutoTestData.Location = new System.Drawing.Point(6, 6);
+            this.textBoxAutoTestData.Name = "textBoxAutoTestData";
+            this.textBoxAutoTestData.Size = new System.Drawing.Size(230, 20);
+            this.textBoxAutoTestData.TabIndex = 0;
             // 
-            // textBoxAutoProgress
+            // tabPageDebug
             // 
-            this.textBoxAutoProgress.Location = new System.Drawing.Point(6, 285);
-            this.textBoxAutoProgress.Name = "textBoxAutoProgress";
-            this.textBoxAutoProgress.Size = new System.Drawing.Size(340, 20);
-            this.textBoxAutoProgress.TabIndex = 3;
-            // 
-            // buttonAutoStart
-            // 
-            this.buttonAutoStart.Location = new System.Drawing.Point(290, 6);
-            this.buttonAutoStart.Name = "buttonAutoStart";
-            this.buttonAutoStart.Size = new System.Drawing.Size(56, 20);
-            this.buttonAutoStart.TabIndex = 4;
-            this.buttonAutoStart.Text = "START";
-            this.buttonAutoStart.UseVisualStyleBackColor = true;
-            this.buttonAutoStart.Click += new System.EventHandler(this.buttonAutoStart_Click);
+            this.tabPageDebug.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDebug.Name = "tabPageDebug";
+            this.tabPageDebug.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDebug.Size = new System.Drawing.Size(352, 311);
+            this.tabPageDebug.TabIndex = 2;
+            this.tabPageDebug.Text = "Debug";
+            this.tabPageDebug.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -413,11 +336,6 @@
             this.tabPageManual.ResumeLayout(false);
             this.tabPageAuto.ResumeLayout(false);
             this.tabPageAuto.PerformLayout();
-            this.tabPageDebug.ResumeLayout(false);
-            this.groupBoxCreate.ResumeLayout(false);
-            this.groupBoxCreate.PerformLayout();
-            this.groupBoxRepeat.ResumeLayout(false);
-            this.groupBoxRepeat.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -434,23 +352,16 @@
         private System.Windows.Forms.Button buttonSalesmanGenetic;
         private System.Windows.Forms.TextBox textBoxSalesmanLocalSearch;
         private System.Windows.Forms.CheckBox checkBoxSalesmanLocalSearch;
-        private System.Windows.Forms.CheckBox checkBoxSalesmanDynamic;
+        private System.Windows.Forms.CheckBox checkBoxSalesmanBnB;
         private System.Windows.Forms.Button buttonSalesmanLocalSearch;
-        private System.Windows.Forms.TextBox textBoxSalesmanDynamic;
-        private System.Windows.Forms.Button buttonSalesmanDynamic;
+        private System.Windows.Forms.TextBox textBoxSalesmanBnB;
+        private System.Windows.Forms.Button buttonSalesmanBnB;
         private System.Windows.Forms.Button buttonSalesman;
         private System.Windows.Forms.ComboBox comboBoxLoadDataFilenames;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageManual;
         private System.Windows.Forms.TabPage tabPageAuto;
         private System.Windows.Forms.TabPage tabPageDebug;
-        private System.Windows.Forms.GroupBox groupBoxCreate;
-        private System.Windows.Forms.TextBox textBoxDataGeneratorSize;
-        private System.Windows.Forms.Button buttonDataGenerator;
-        private System.Windows.Forms.GroupBox groupBoxRepeat;
-        private System.Windows.Forms.TextBox textBoxRepeatNew;
-        private System.Windows.Forms.TextBox textBoxRepeatCurrent;
-        private System.Windows.Forms.Button buttonRepeatChange;
         private System.Windows.Forms.TextBox textBoxAutoProgress;
         private System.Windows.Forms.TextBox textBoxAutoPlannedTests;
         private System.Windows.Forms.Button buttonAutoAddTest;

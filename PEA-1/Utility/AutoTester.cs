@@ -29,7 +29,7 @@ namespace PEA_1.Utility
                 {
                     SalesmanData data =
                         new SalesmanData(DataGenerator.Salesman(test.CityAmount, test.LowerBound, test.UpperBound));
-                    SalesmanDynamic salesman = new SalesmanDynamic(data);
+                    SalesmanBnB salesman = new SalesmanBnB(data);
 
                     Clock.Start();
                     salesman.Start();
@@ -58,7 +58,7 @@ namespace PEA_1.Utility
             {
                 SalesmanData data =
                     new SalesmanData(DataGenerator.Salesman(test.CityAmount, test.LowerBound, test.UpperBound));
-                SalesmanDynamic salesman = new SalesmanDynamic(data);
+                SalesmanBnB salesman = new SalesmanBnB(data);
 
                 Clock.Start();
                 salesman.Start();
@@ -120,7 +120,7 @@ namespace PEA_1.Utility
 
         public override string ToString()
         {
-            return  "[<" + LowerBound + ", " + UpperBound + ">, " + CityAmount + " miasta ] x " + TestAmount;
+            return "[<" + LowerBound + ", " + UpperBound + ">, " + CityAmount + " miasta ] x " + TestAmount;
         }
     }
 
