@@ -6,7 +6,7 @@ using Priority_Queue;
 
 namespace PEA_1.Salesman
 {
-    internal class SalesmanBnB
+    internal class SalesmanBnB : ISalesman
     {
         // Dane wczytane z pliku lub wygenerowane.
         private readonly SalesmanData data;

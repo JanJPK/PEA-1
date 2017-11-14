@@ -9,16 +9,18 @@ namespace PEA_1.Utility
 {
     public static class AutoTester
     {
-        private static int testsExported = 0;
+        private static int testsExported;
+        private static string startTime;
 
         /// <summary>
-        /// Przyjmuje listę kilku testów i zwraca dla każdego wynik.
+        ///     Przyjmuje listę kilku testów i zwraca dla każdego wynik.
         /// </summary>
         /// <param name="tests">Testy do wykonania.</param>
         /// <param name="form">Referencja do interfejsu (potrzebne do wyświetlania informacji o postępach).</param>
         /// <returns>Wyniki testów.</returns>
         public static IEnumerable<TestResult> Multiple(List<Test> tests, FormMain form)
         {
+            startTime = form.Date;
             form.ShowProgress("Start pracy. Ilość zadań: " + tests.Count());
             List<TestResult> testResults = new List<TestResult>();
 
@@ -47,7 +49,7 @@ namespace PEA_1.Utility
         }
 
         /// <summary>
-        /// Pojedynczy test.
+        ///     Pojedynczy test.
         /// </summary>
         /// <param name="test"></param>
         /// <returns>Uśredniony wynik.</returns>
@@ -70,7 +72,7 @@ namespace PEA_1.Utility
         }
 
         /// <summary>
-        /// Export wyników testu do pliku .txt.
+        ///     Export wyników testu do pliku .txt.
         /// </summary>
         /// <param name="testResults">Wyniki testu.</param>
         public static void ExportToTxt(IEnumerable<TestResult> testResults)
@@ -88,7 +90,8 @@ namespace PEA_1.Utility
             }
 
 
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "results_" + testsExported + ".txt");
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                "results_" + startTime + "_" + testsExported + ".txt");
             using (StreamWriter sw = new StreamWriter(path))
             {
                 sw.Write(sb.ToString());
@@ -99,11 +102,10 @@ namespace PEA_1.Utility
     }
 
     /// <summary>
-    /// Zawiera dane dla generatora macierzy + informację o ilości powtórzeń.
+    ///     Zawiera dane dla generatora macierzy + informację o ilości powtórzeń.
     /// </summary>
     public class Test
     {
-
         public int LowerBound { get; set; }
         public int UpperBound { get; set; }
         public int CityAmount { get; set; }
@@ -112,10 +114,10 @@ namespace PEA_1.Utility
         public Test(string data)
         {
             string[] splitData = data.Split(';');
-            LowerBound = Int32.Parse(splitData[0]);
-            UpperBound = Int32.Parse(splitData[1]);
-            CityAmount = Int32.Parse(splitData[2]);
-            TestAmount = Int32.Parse(splitData[3]);
+            LowerBound = int.Parse(splitData[0]);
+            UpperBound = int.Parse(splitData[1]);
+            CityAmount = int.Parse(splitData[2]);
+            TestAmount = int.Parse(splitData[3]);
         }
 
         public override string ToString()
@@ -125,7 +127,7 @@ namespace PEA_1.Utility
     }
 
     /// <summary>
-    /// Zawiera Test (parametry testu) + wyniki (każda iteracja oddzielnie).
+    ///     Zawiera Test (parametry testu) + wyniki (każda iteracja oddzielnie).
     /// </summary>
     public class TestResult
     {
@@ -136,11 +138,6 @@ namespace PEA_1.Utility
         {
             Test = test;
             Times = new List<double>();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
         }
     }
 }

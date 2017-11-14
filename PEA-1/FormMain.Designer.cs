@@ -53,6 +53,7 @@
             this.buttonAutoAddTest = new System.Windows.Forms.Button();
             this.textBoxAutoTestData = new System.Windows.Forms.TextBox();
             this.tabPageDebug = new System.Windows.Forms.TabPage();
+            this.textBoxAutoExample = new System.Windows.Forms.TextBox();
             this.groupBoxLoadData.SuspendLayout();
             this.groupBoxSalesman.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -255,6 +256,7 @@
             // 
             // tabPageAuto
             // 
+            this.tabPageAuto.Controls.Add(this.textBoxAutoExample);
             this.tabPageAuto.Controls.Add(this.buttonAutoStart);
             this.tabPageAuto.Controls.Add(this.textBoxAutoProgress);
             this.tabPageAuto.Controls.Add(this.textBoxAutoPlannedTests);
@@ -270,7 +272,7 @@
             // 
             // buttonAutoStart
             // 
-            this.buttonAutoStart.Location = new System.Drawing.Point(290, 6);
+            this.buttonAutoStart.Location = new System.Drawing.Point(290, 31);
             this.buttonAutoStart.Name = "buttonAutoStart";
             this.buttonAutoStart.Size = new System.Drawing.Size(56, 20);
             this.buttonAutoStart.TabIndex = 4;
@@ -280,6 +282,7 @@
             // 
             // textBoxAutoProgress
             // 
+            this.textBoxAutoProgress.Enabled = false;
             this.textBoxAutoProgress.Location = new System.Drawing.Point(6, 285);
             this.textBoxAutoProgress.Name = "textBoxAutoProgress";
             this.textBoxAutoProgress.Size = new System.Drawing.Size(340, 20);
@@ -287,16 +290,16 @@
             // 
             // textBoxAutoPlannedTests
             // 
-            this.textBoxAutoPlannedTests.Location = new System.Drawing.Point(6, 32);
+            this.textBoxAutoPlannedTests.Location = new System.Drawing.Point(6, 58);
             this.textBoxAutoPlannedTests.Multiline = true;
             this.textBoxAutoPlannedTests.Name = "textBoxAutoPlannedTests";
             this.textBoxAutoPlannedTests.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxAutoPlannedTests.Size = new System.Drawing.Size(340, 247);
+            this.textBoxAutoPlannedTests.Size = new System.Drawing.Size(340, 221);
             this.textBoxAutoPlannedTests.TabIndex = 2;
             // 
             // buttonAutoAddTest
             // 
-            this.buttonAutoAddTest.Location = new System.Drawing.Point(242, 6);
+            this.buttonAutoAddTest.Location = new System.Drawing.Point(242, 31);
             this.buttonAutoAddTest.Name = "buttonAutoAddTest";
             this.buttonAutoAddTest.Size = new System.Drawing.Size(42, 20);
             this.buttonAutoAddTest.TabIndex = 1;
@@ -306,7 +309,7 @@
             // 
             // textBoxAutoTestData
             // 
-            this.textBoxAutoTestData.Location = new System.Drawing.Point(6, 6);
+            this.textBoxAutoTestData.Location = new System.Drawing.Point(6, 32);
             this.textBoxAutoTestData.Name = "textBoxAutoTestData";
             this.textBoxAutoTestData.Size = new System.Drawing.Size(230, 20);
             this.textBoxAutoTestData.TabIndex = 0;
@@ -320,6 +323,14 @@
             this.tabPageDebug.TabIndex = 2;
             this.tabPageDebug.Text = "Debug";
             this.tabPageDebug.UseVisualStyleBackColor = true;
+            // 
+            // textBoxAutoExample
+            // 
+            this.textBoxAutoExample.Enabled = false;
+            this.textBoxAutoExample.Location = new System.Drawing.Point(6, 6);
+            this.textBoxAutoExample.Name = "textBoxAutoExample";
+            this.textBoxAutoExample.Size = new System.Drawing.Size(340, 20);
+            this.textBoxAutoExample.TabIndex = 5;
             // 
             // FormMain
             // 
@@ -367,6 +378,7 @@
         private System.Windows.Forms.Button buttonAutoAddTest;
         private System.Windows.Forms.TextBox textBoxAutoTestData;
         private System.Windows.Forms.Button buttonAutoStart;
+        private System.Windows.Forms.TextBox textBoxAutoExample;
     }
 }
 

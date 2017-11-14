@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PEA_1.Utility
 {
@@ -12,7 +10,7 @@ namespace PEA_1.Utility
         // Zmodyfikowana klasa z mojego innego programu, znajduje wszystkie potrzebne pliki (tutaj testowe .txt) i je przechowuje.
 
         /// <summary>
-        /// List of all the files.
+        ///     List of all the files.
         /// </summary>
         public List<string> FilePaths { get; set; }
 
@@ -21,7 +19,7 @@ namespace PEA_1.Utility
         public string FolderPath { get; set; }
 
         /// <summary>
-        /// Class constructor.
+        ///     Class constructor.
         /// </summary>
         public SourceFolder()
         {
@@ -30,7 +28,7 @@ namespace PEA_1.Utility
         }
 
         /// <summary>
-        /// Populates FilePaths with all the files inside the directory then removes ones that have incorrect extensions.
+        ///     Populates FilePaths with all the files inside the directory then removes ones that have incorrect extensions.
         /// </summary>
         public void ProcessDirectory()
         {
@@ -44,6 +42,9 @@ namespace PEA_1.Utility
             }
         }
 
+        /// <summary>
+        ///     Fills another list with filenames only, needed for drop list display.
+        /// </summary>
         public void PopulateFilenameList()
         {
             Filenames = new List<string>();

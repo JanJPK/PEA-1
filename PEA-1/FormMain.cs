@@ -21,7 +21,9 @@ namespace PEA_1
             folder.PopulateFilenameList();
             comboBoxLoadDataFilenames.DataSource = folder.Filenames;
             comboBoxLoadDataFilenames.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            textBoxAutoExample.Text = "\"wagi_od;wagi_do;ilość_miast;ilość_testów\" - \"X;Y;M;T\"";
+            AcceptButton = buttonAutoAddTest;
+            Date = DateTime.Now.Hour + "-" + DateTime.Now.Minute;
             checkBoxSalesmanBnB.Checked = true;
             //checkBoxSalesmanLocalSearch.Checked = true;
             //checkBoxSalesmanGenetic.Checked = true;
@@ -31,6 +33,9 @@ namespace PEA_1
 
         // Lista zawierająca dane wejściowe.
         public List<int> InputList { get; private set; }
+
+        // Na potrzeby wypisywania autotestów (zawiera się w nazwie pliku).
+        public String Date { get; set; }
 
         // Algorytmy, i ich dane.
         private SalesmanData salesmanData;
