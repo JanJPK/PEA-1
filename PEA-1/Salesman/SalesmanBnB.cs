@@ -50,7 +50,7 @@ namespace PEA_1.Salesman
 
             // Korzeń drzewa trafia na początek kolejki.
             Node root = new Node(matrix, new List<Tuple<int, int>>(), -1, 0, 0);
-            SetLowerBound(root);
+            MatrixReduction(root);
             queue.Enqueue(root, root.LowerBound);
 
             bool leafReached = false;
@@ -75,7 +75,7 @@ namespace PEA_1.Salesman
                         {
                             Node child = new Node(poppedNode.Matrix, poppedNode.Path, poppedNode.ID, i,
                                 poppedNode.Level + 1);
-                            SetLowerBound(child);
+                            MatrixReduction(child);
                             child.LowerBound += poppedNode.LowerBound + poppedNode.Matrix[poppedNode.ID, i];
                             queue.Enqueue(child, child.LowerBound);
                         }
@@ -89,7 +89,7 @@ namespace PEA_1.Salesman
         ///     Wyliczenie LB dla danego miasta.
         /// </summary>
         /// <param name="node">Zadane miasto.</param>
-        private void SetLowerBound(Node node)
+        private void MatrixReduction(Node node)
         {
             int a = ReduceRow(node);
             int b = ReduceColumn(node);
@@ -288,6 +288,11 @@ namespace PEA_1.Salesman
 
             // [j, start]
             Matrix[destination, 0] = int.MaxValue;
+        }
+
+        public override string ToString()
+        {
+            return "ID: " + ID + " LB: " + LowerBound + " Lv: " + Level;
         }
     }
 }
